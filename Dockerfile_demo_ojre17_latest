@@ -1,0 +1,33 @@
+FROM chencd97/base:ubuntu_ojre17_latest
+
+LABEL chencd97 "chencd97.cc@outlook.com"
+
+# -------------------------项目环境和工具安装----------------------------
+
+# 设置时区 中国用户填写[Asia/Shanghai], 表示亚洲/上海, 东八区
+ENV TZ=Asia/Shanghai
+# 创建项目根路径 项目需要映射到这里来
+RUN mkdir /home/docker
+# 复制新的源
+COPY ./sources.list /home/docker
+# ssh
+COPY ./sshd_config /home/docker
+COPY ./ssh_config /home/docker
+# 复制任务脚本
+COPY ./build_tasks.sh /home/docker
+# 授权与执行任务脚本
+RUN chmod 755 /home/docker/build_tasks.sh && /home/docker/build_tasks.sh
+# 删除任务脚本
+RUN rm -rf /home/docker/build_tasks.sh
+
+# ----------------------------项目数据准备-----------------------------
+
+# 持久化数据卷
+# VOLUME [ "/home/docker" ]
+
+# ------------------------------最后配置-------------------------------
+
+WORKDIR /home/docker
+
+# 设置容器启动时的启动脚本
+ENTRYPOINT ["sh", "/home/docker/_init.sh"]
