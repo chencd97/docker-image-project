@@ -1,9 +1,9 @@
 ## Docker Hub
-https://hub.docker.com/repository/docker/chencd97/demo
+https://hub.docker.com/r/chencd97/demo
 
 ## 镜像修改内容
 
-镜像来自 Docker Hub [chencd97/base](https://hub.docker.com/repository/docker/chencd97/base) (与 `teg` 标签对应)
+镜像来自 Docker Hub [chencd97/base](https://hub.docker.com/r/chencd97/base) (与 `teg` 标签对应)
 
 1.`ubuntu` 的 `apt` 源已更换为 `ubuntu` 中国服务器(官方) http://cn.archive.ubuntu.com/ubuntu/
 
