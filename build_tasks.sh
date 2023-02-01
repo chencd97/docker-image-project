@@ -18,15 +18,15 @@ rm -rf /home/docker/sshd_config && rm -rf /home/docker/ssh_config
 #
 # apt update
 apt-get update
-apt-get install -y openssh-server
-apt-get install -y openssh-client
-apt-get install -y tzdata
 apt-get install -y vim
 apt-get install -y zip
-apt-get install -y htop
 apt-get install -y net-tools
 apt-get install -y iputils-ping
+# apt-get install -y tzdata
 apt-get install -y wget
+apt-get install -y htop
+apt-get install -y openssh-server
+apt-get install -y openssh-client
 #
 # 清理缓存
 apt-get autoremove -y
