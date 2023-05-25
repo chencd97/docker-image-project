@@ -51,4 +51,4 @@ jobs:
 
             # 通知
             - name: send notification
-              run: curl ${{ secrets.CHENCD97_SERVER }}/${{ secrets.DEVICE_CODE }}/GithubAction/Docker_demo项目已更新
+              run: curl ${{ secrets.BARK }}/GithubAction/Docker_demo项目已更新
