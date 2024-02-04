@@ -49,6 +49,14 @@ jobs:
                   push: true
                   tags: ${{ secrets.DOCKER_USERNAME }}/demo:ojre17_latest
 
+            - name: Build and push [ojre21]
+              uses: docker/build-push-action@v3
+              with:
+                  context: .
+                  file: ./Dockerfile_demo_ojre21_latest
+                  push: true
+                  tags: ${{ secrets.DOCKER_USERNAME }}/demo:ojre21_latest
+
             # 通知
             - name: send notification
               run: curl ${{ secrets.BARK }}/GithubAction/Docker_demo项目已更新

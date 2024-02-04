@@ -1,0 +1,24 @@
+FROM chencd97/base:ubuntu_ojre21_latest
+
+LABEL author="chencd97"
+LABEL github="https://github.com/chencd97"
+LABEL version="1.0.0"
+
+ENV TZ=Asia/Shanghai
+ENV LANG=C.UTF-8
+
+RUN mkdir /home/docker
+
+# 这个是配置ubuntu apt源的地址, 由下方的build_tasks.sh处理
+COPY ./sources.list /home/docker
+# 这个是配置远程ssh的源文件, 由下方的build_tasks.sh处理
+COPY ./sshd_config /home/docker
+COPY ./ssh_config /home/docker
+
+COPY ./build_tasks.sh /home/docker
+RUN chmod 755 /home/docker/build_tasks.sh && /home/docker/build_tasks.sh
+RUN rm -rf /home/docker/build_tasks.sh
+
+WORKDIR /home/docker
+
+ENTRYPOINT ["sh", "/home/docker/_init.sh"]
