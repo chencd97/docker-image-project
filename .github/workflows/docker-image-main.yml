@@ -3,6 +3,8 @@ name: Docker Image CI Build and push
 on:
     push:
         branches: [ "main" ]
+    # 允许随时手动运行作业
+    workflow_dispatch:
 
 jobs:
     docker:
