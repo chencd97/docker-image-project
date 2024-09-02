@@ -14,9 +14,9 @@ https://hub.docker.com/r/chencd97/demo
 
 - openssh-server
 
-5.端口暴露 `无`
+4.端口暴露 `无`
 
-6.持久化目录 `无`
+5.持久化目录 `无`
 
 ## 注意
 
