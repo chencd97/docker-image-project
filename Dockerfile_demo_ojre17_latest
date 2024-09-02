@@ -9,11 +9,10 @@ ENV LANG=C.UTF-8
 
 RUN mkdir /home/docker
 
-# 这个是配置ubuntu apt源的地址, 由下方的build_tasks.sh处理
-COPY ./sources.list /home/docker
-# 这个是配置远程ssh的源文件, 由下方的build_tasks.sh处理
-COPY ./sshd_config /home/docker
-COPY ./ssh_config /home/docker
+# 配置远程ssh的源文件
+COPY ./sshd_config /etc/ssh/
+COPY ./ssh_config /etc/ssh/
+RUN chmod 644 /etc/ssh/sshd_config && chmod 644 /etc/ssh/ssh_config
 
 COPY ./build_tasks.sh /home/docker
 RUN chmod 755 /home/docker/build_tasks.sh && /home/docker/build_tasks.sh
