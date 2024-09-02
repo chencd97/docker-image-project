@@ -12,19 +12,11 @@ https://hub.docker.com/r/chencd97/demo
 
 3.预装以下组件
 
-- vim
-- zip
-- net-tools
-- iputils-ping
-- ~~tzdata~~
-- wget
-- htop
 - openssh-server
-- openssh-client
 
-  5.端口暴露 `无`
+5.端口暴露 `无`
 
-  6.持久化目录 `无`
+6.持久化目录 `无`
 
 ## 注意
 
